@@ -13,9 +13,7 @@ $(document).ready(function(){
         for(var i = 0; i<e.touches.length; i++){
             var fingerX = e.touches[i].pageX;
             var fingerY = e.touches[i].pageY;
-            out+=fingerX+','+fingerY+'::';
         }
-        log(out);
 
         $('.boxes').each(function(i){
             if(e.touches[i]){
