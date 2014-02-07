@@ -5,19 +5,21 @@ $(document).ready(function(){
         $('#console').prepend('<p>'+message+'</p>');
     }
     
+    $('#main').bind('touchstart touchmove touchend', function (event) { updateFinger(event); });
+    var updateFinger = function(e)
+    {
+        e.preventDefault();
+        fingerX = e.touches[0].pageX;
+        fingerY = e.touches[0].pageY;
+        alert(fingerX + ' ' + fingerY);
+    }
+
     main.init = function(){
         main.touch_controls = touch_controls.init();
         log('main started');
         return main;
     }
     
-    $('#main').bind('touchmove', function(event) {
-        for (var i = 0; i < event.touches.length; i++) {
-            var touch = event.touches[i];
-            console.log(touch);
-            log(JSON.stringify(touch));
-        }
-    }, false);    
     main.draw_square = function(){
         
     }
