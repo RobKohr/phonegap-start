@@ -19,8 +19,8 @@ $(document).ready(function(){
             if(e.touches[i]){
                 var fingerX = e.touches[i].pageX;
                 var fingerY = e.touches[i].pageY;
-                $(this).css('top', fingerY);
-                $(this).css('left', fingerX);
+                $(this).css('top', fingerY+'px');
+                $(this).css('left', fingerX+'px');
             }else{
                 $(this).css('top', 0);
                 $(this).css('left', 0);
