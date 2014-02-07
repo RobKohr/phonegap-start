@@ -16,7 +16,7 @@ $(document).ready(function(){
             var fingerY = e.touches[i].pageY;
         }
 
-        $('.boxes').each(function(i){
+        $('.box').each(function(i){
             log('boxes');
             if(e.touches[i]){
                 var fingerX = e.touches[i].pageX;
