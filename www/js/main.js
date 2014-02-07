@@ -13,6 +13,7 @@ $(document).ready(function(){
     $('#main').bind('touchmove', function(event) {
         for (var i = 0; i < event.touches.length; i++) {
             var touch = event.touches[i];
+            log(JSON.stringify(touch));
         }
     }, false);    
     main.draw_square = function(){
