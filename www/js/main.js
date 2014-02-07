@@ -9,9 +9,13 @@ $(document).ready(function(){
     var updateFinger = function(e)
     {
         e.preventDefault();
-        fingerX = e.touches[0].pageX;
-        fingerY = e.touches[0].pageY;
-        alert(fingerX + ' ' + fingerY);
+        var out = "c="+e.touches.length+' ';
+        for(var i = 0; i<e.touches.length; i++){
+            var fingerX = e.touches[i].pageX;
+            var fingerY = e.touches[i].pageY;
+            out+=fingerX+','+fingerY+'::';
+        }
+        log(out);
     }
 
     main.init = function(){
