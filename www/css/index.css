@@ -41,12 +41,23 @@ body {
     height:100%;
     margin:0px;
     padding:0px;
-    text-transform:uppercase;
     width:100%;
 }
 
+#main{
+        position:absolute;
+        top:0px;
+        left:0px;
+        width:100%;
+        height:100%;
+        background:green;
+}
+
+
+
 /* Portrait layout (default) */
 .app {
+     display:none;
     background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
     position:absolute;             /* position in the center of the screen */
     left:50%;
@@ -112,4 +123,24 @@ h1 {
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
+}
+
+
+.box{
+        position:absolute;
+        top:0px;
+        left:0px;
+        width:40px;
+        height:40px;
+        background:blue;
+}
+
+#console{
+        position:absolute;
+        right:0px;
+        top:0px;
+        background:black;
+        color:white;
+        height:500px;
+        width:500px;
 }
