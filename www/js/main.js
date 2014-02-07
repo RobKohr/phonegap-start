@@ -1,6 +1,7 @@
 var main = {};
 $(document).ready(function(){
     var log = function(message){
+        console.log(message);
         $('#console').prepend('<p>'+message+'</p>');
     }
     
@@ -13,6 +14,7 @@ $(document).ready(function(){
     $('#main').bind('touchmove', function(event) {
         for (var i = 0; i < event.touches.length; i++) {
             var touch = event.touches[i];
+            console.log(touch);
             log(JSON.stringify(touch));
         }
     }, false);    
