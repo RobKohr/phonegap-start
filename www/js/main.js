@@ -5,39 +5,18 @@ $(document).ready(function(){
         $('#console').prepend('<p>'+message+'</p>');
     }
     
-    $('#main').bind('touchstart touchmove touchend', function (event) { updateFinger(event); });
-    var updateFinger = function(e)
-    {
-        e.preventDefault();
-        var out = "c="+e.touches.length+' ';
-        for(var i = 0; i<e.touches.length; i++){
-            var fingerX = e.touches[i].pageX;
-            var fingerY = e.touches[i].pageY;
-        }
-
-        $('.box').each(function(i){
-            if(e.touches[i]){
-                var fingerX = e.touches[i].pageX;
-                var fingerY = e.touches[i].pageY;
-                $(this).css('top', ''+fingerY+'px');
-                $(this).css('left', ''+fingerX+'px');
-            }else{
-                $(this).css('top', 0+'px');
-                $(this).css('left', 0+'px');
-            }
-        })
-
-    }
-
     main.init = function(){
+        var touch_config = {
+            show_fingers: true,
+            controls:{
+                p1:{type:'dpad', x:1,y:1}
+            }
+        }
         main.touch_controls = touch_controls.init();
         log('main started');
         return main;
     }
-    
-    main.draw_square = function(){
-        
-    }
+
     main.init();
 })
 
