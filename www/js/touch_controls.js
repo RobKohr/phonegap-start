@@ -23,6 +23,7 @@ $(document).ready(function(){
             if(e.touches[i]){
                 var fingerX = e.touches[i].pageX;
                 var fingerY = e.touches[i].pageY;
+                log(fingerX+','+fingerY);
                 $(this).css('top', ''+fingerY+'px');
                 $(this).css('left', ''+fingerX+'px');
             }else{
