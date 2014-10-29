@@ -19,6 +19,21 @@ $(document).ready(function(){
 
     $(document).keydown(function(e){
 	log(e.keyCode);
+	var out = 'jjj';
+	console.log(e);
+	log(e);
+	for(var k in e){
+	    var t = typeof(e[k]);
+	    if(['boolean', 'object', 'undefined', 'function'].indexOf(t) > -1) {
+		continue;
+	    }
+
+	    out+=": :"+k+'='+e[k];
+	}
+	console.log(e['MOUSEOVER'], 'hhhh');	
+	log(out);
+	log('hello');
+
     });
 
     main.init();
