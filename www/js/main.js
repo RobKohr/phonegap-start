@@ -16,25 +16,54 @@ $(document).ready(function(){
         log('main started');
         return main;
     }
-
+    var keystate = {};
     $(document).keydown(function(e){
-	log(e.keyCode);
-	var out = 'jjj';
-	console.log(e);
-	log(e);
-	for(var k in e){
-	    var t = typeof(e[k]);
-	    if(['boolean', 'object', 'undefined', 'function'].indexOf(t) > -1) {
-		continue;
-	    }
-
-	    out+=": :"+k+'='+e[k];
+	keystate[e.keyIdentifier] = true;
+	if(['Up', 'Down', 'Left', 'Right'].indexOf(e.keyIdentifier)!=-1){
+	    return false; //prevent keyboard scrolling
 	}
-	console.log(e['MOUSEOVER'], 'hhhh');	
-	log(out);
-	log('hello');
 
     });
+    $(document).keyup(function(e){
+	keystate[e.keyIdentifier] = false;
+	log(e.keyIdentifier);
+	if(['Up', 'Down', 'Left', 'Right'].indexOf(e.keyIdentifier)!=-1){
+	    return false; //prevent keyboard scrolling
+	}
+    });
+    
+    var in_frame = false;
+    var last_in_frame = 0;
+    var box = $('#box1');
+
+    function frame(){
+	var now = new Date().getTime();
+	if(in_frame){
+	    var elapsed = now - last_in_frame;
+	    if(elapsed < 1000){
+		return;
+	    }
+	}
+	in_frame = true;
+	last_in_frame = now;
+	var adjustment = 1;
+	var pos = box.offset();
+	if(keystate['Up']){
+	    pos.top = pos.top - adjustment;
+	}
+	if(keystate['Down']){
+	    pos.top = pos.top + adjustment;
+	}
+	if(keystate['Left']){
+	    pos.left = pos.left - adjustment;
+	}
+	if(keystate['Right']){
+	    pos.left = pos.left + adjustment;
+	}
+	box.offset(pos);
+	in_frame = false;
+    }
+    setInterval(frame, 10);
 
     main.init();
 })
