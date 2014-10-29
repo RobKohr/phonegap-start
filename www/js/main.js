@@ -17,6 +17,10 @@ $(document).ready(function(){
         return main;
     }
 
+    $(document).keydown(function(e){
+	log(e.keyCode);
+    });
+
     main.init();
 })
 
